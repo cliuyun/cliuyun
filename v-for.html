@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cn.vuejs.org/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" @click="xxx" value="你喜欢吃的" />
+        <ul>
+            <li v-for="(ok,index) in aqq">
+                {{index+1}}机器人:{{ok}}
+            </li>
+            <h3 v-for="(ca,index) in cai" :title="ca.name">
+                {{ca.name}}
+            </h3>
+        </ul>
+        <button @dblclick="add">添加菜</button>
+        <button @dblclick="moreve">删除菜</button>
+        
+    </div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el:"#app",
+        data:{
+            aqq:['一号','二号','三号','四号'],
+            cai:[{name:'黄焖鸡'},{name:'西红柿炒蛋'}]
+        },
+        methods:{
+            add:function(){
+            this.cai.push({name:'土豆丝'})
+         },
+         moreve:function(){
+             this.cai.shift();
+         },
+         xxx:function(){
+             this.cai.push({name:'汉堡包，鸡肉卷'})
+         }
+    }
+    })
+</script>
+</html>

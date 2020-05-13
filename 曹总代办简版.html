@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cn.vuejs.org/js/vue.js"></script>
+    <style>
+        *{margin:0px; padding:0px; font-size:14px; color:#999}
+        li{list-style:none}
+        img{border:0px}
+        a{text-decoration:none}
+        #id{width: 300px; height:300px; border:1px solid red}
+        input::-webkit-input-placeholder{color:blue}
+
+
+    </style>
+</head>
+<body>
+    <!-- 主体局域 -->
+    <section id="qingapp">
+        <h1>曹总代办</h1>
+        <input type="text" v-model="inputValue" placeholder="好好学习" @keyup.enter="add" />
+        <ul>
+            <li v-for="item,index in list">
+                <span>{{index+1}}.</span>
+                <label for="">{{item}}</label>
+                <button class="sc" @click="moreve(index)">删除</button>
+            </li>
+        </ul>
+    </section>
+</body>
+<script type="text/javascript">
+    var qingapp = new Vue({
+        el:"#qingapp",
+        data:{
+            list:['吃饭饭','睡觉觉','打泡泡','拉肚肚'],
+            
+        },
+        methods:{
+            add:function(){
+                this.list.push(this.inputValue)
+            },
+            moreve:function(index){
+                this.list.splice(index,1)
+            }
+        }
+    })
+</script>
+</html>

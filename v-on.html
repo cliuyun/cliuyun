@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cn.vuejs.org/js/vue.js"></script>
+    <style>
+        input::-webkit-input-placeholder{color:red}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="点啊" @click="hello('饿了么','美团')" />
+        <input type="text" placeholder="来了" @keyup.enter="sayHi" />
+
+    </div>
+</body>
+<script type="text/javascript">
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            hello:function(a,b){
+                
+                console.log("你啥吧");
+                console.log(a);
+                console.log(b);
+                
+                
+            },
+            sayHi:function(){
+                alert("吃鸡了")
+            }
+        }
+    })
+    
+</script>
+</html>

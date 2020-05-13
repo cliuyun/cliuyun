@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cn.vuejs.org/js/vue.js"></script>
+    <style>
+        *{margin:0px; padding:0px; font-size:14px; color:#000}
+        li{list-style:none}
+        a{text-decoration:none}
+        img{border:0px}
+        .entirety{height:230px; width:700px; border:1px solid #000; margin:100px auto; padding:10px;
+            background: linear-gradient(240deg,rgb(167, 167, 248), rgb(251, 161, 161));}
+        #textone{resize:none; text-indent:30px ;opacity:77%; margin:10px 10px; width:658px; height:160px; background:url(img/2.jpg) no-repeat; border-radius:10px; color:#fff; font-size:16px; line-height: 20px;}
+        .entirety ul li{float:left; margin:0px 15px 0px 15px}
+        .entirety ul li a{margin-left:5px; float:right}
+        .entirety ul span{float:left; margin-top:-3px}
+        #btn{float:right; width:85px; height:30px; color:#fff; background-color: rgba(255, 74, 74, 0.719); margin:-7px 7px;
+        border-radius:7px}
+        #set{float:right;  opacity:30%}
+    
+        .div3 ul li{display:flex; width:720px; line-height:30px; margin:-5px -11px; background:linear-gradient(70deg,rgb(190, 230, 255),rgb(255, 249, 161),rgb(255, 190, 230) );
+        text-indent:30px ;margin-top: 10px;}
+        .div3 ul li span{float:right}
+    </style>
+</head>
+<body>
+    <div class="entirety">
+        
+        <span style="font-family:楷体; font-size:18px; color:blue">有什么新鲜事想告诉大家？</span>
+        <span style="float:right; color:red; font-size:16px">截止10日24时，全国新增17例确诊病例>> 热门微博</span>
+        <textarea name="" id="textone" cols="110" rows="10" v-model="text"></textarea>
+        <ul>
+            <li><img src="img/表情.svg"width="22px"><a>表情</a></li>
+            <li><img src="img/图片.svg"width="22px"><a>图片</a></li>
+            <li><img src="img/视频.svg"width="22px"><a>视频</a></li>
+            <li><img src="img/话题.svg"width="22px"><a>话题</a></li>
+            <li><img src="img/闪电.svg"width="22px"><a>头条文章</a></li>
+            <span>...</span>
+            
+        </ul>
+        <input type="button" value="发布" id="btn" @click="btn">
+        <select id="set">
+            <option class="ddd">公开</option>
+            <option>仅好友可见</option>
+            <option>仅自己可见</option>
+            
+        </select>
+        
+        <div class="div3">
+        <ul>
+        <li v-for="(i,index) in arr" style="color:rgb(255, 78, 202)" >
+            {{i}}
+            <button @click="remove(index)" style="background:rgb(255, 170, 251); width:50px; color:cyan;margin-left: auto ;margin-right: 27px;">删除</button>
+        </li>
+        </ul>
+        </div>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+let app = new Vue({
+    el:".entirety",
+    data:{
+        arr:[],
+        text:''
+    },
+    methods:{
+        btn:function(){
+            if(this.text.trim()==''){    //判断不能为空
+                console.log("不能为空");
+            }else{
+                this.arr.unshift(this.text); //把获取到的内容加到数组里
+                this.text = ''
+            }
+        },
+        remove:function(index){
+            this.arr.splice(index,1); //删除对应索引的数据
+        }
+    }
+})
+</script>
+</html>

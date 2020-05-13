@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cn.vuejs.org/js/vue.js"></script>
+</head>
+<body>
+    <div id="app" style="width: 200px; height: 200px;">
+        <img :src="imgArr[index]" alt="">
+        <button @click="prev" v-show="index!=0">上一张</button>
+        <button @click="next" v-show="index<imgArr.length-1 ">下一张</button>
+    </div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el:"#app",
+        data:{
+            imgArr:[
+            '1.jpg',
+            '2.jpg',
+            '3.jpg',
+            '4.jpg',
+            ],
+            index:0
+        },
+        methods:{
+            prev:function(){
+                this.index--;
+            },
+            next:function(){
+                this.index++;
+            }
+        }
+    })
+</script>
+</html>

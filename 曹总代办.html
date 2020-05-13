@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>曹总代办</title>
+    <script src="https://cn.vuejs.org/js/vue.js"></script>
+    <style>
+        *{margin:0px; padding:0px; font-size:14px; color:#999}
+        li{list-style:none}
+        a{text-decoration:none}
+        img{border:0px}
+        body{
+            background:rgba(213, 223, 223, 0.322)
+        }
+        .qing {width:300px; height:500px; border:1px solid red;margin:0px auto;}
+        .qing h1{font-size:30px; font-weight:normal; color:rgba(253, 170, 209, 0.459); text-align:center}
+        .li{width:300px}
+        #textk{ width:200px; text-align:center; height:20px;}
+        .ul{width:200px; height:20px}
+        
+
+    </style>
+</head>
+<body>
+    <div class="qing">
+        <h1>曹总代办</h1>
+        <div style="background:#fff;height:400px; width:200px;margin:0px auto;">
+            <input type="text" id="textk" v-model="inputValue" @keyup.enter="add" >
+            <ul class="ul">
+                <li v-for="wan,index in arr">
+                    <label for="">{{wan}}</label>
+                    <p style="float:right" @click="delete(index)"><img src="./img/星.svg" width="20px" alt=""/></p>
+                </li>
+                <span>剩下{{arr.length}}项</span>
+                <input type="button">
+                <input type="button">
+                <input type="button">
+            </ul>
+        </div> 
+    </div>
+</body>
+<script type="text/javascript">
+    var qing = new Vue({
+        el:".qing",
+        data:{
+            arr:[],
+            
+        },
+        methods:{
+            add:function(){
+                this.arr.push(this.inputValue)
+            },
+            delete:function(index){
+                this.arr.splice(index,1)
+            }
+        }
+    })
+</script>
+</html>
